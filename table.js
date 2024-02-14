@@ -31,13 +31,17 @@ var asciiTbl = '';
 tableArr.map((val) => { 
     let test = ''
     val.map((value) => {
-        // let charConvert = 
-        test += `${value} : ${String.fromCharCode(value)}\t`
+        test += `| ${value.toString().length == 3 ? value:value.toString().length == 2 ? value+" " : value+"  "} |\t`
     })
      asciiTbl += `${test}\n`
 })
 
 console.log(asciiTbl);
 
-// Write the ASCII table to a text file
-fs.writeFileSync('asciiTable.txt', asciiTbl, 'utf-8');
+try {
+    // Write to a text file
+    fs.writeFileSync('asciiTable.txt', asciiTbl);
+    
+} catch (error) {
+  console.log(error);  
+}
