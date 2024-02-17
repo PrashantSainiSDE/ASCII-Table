@@ -3,14 +3,14 @@ const fs = require("fs");
 const tableNumber = 20;
 
 // with key value
-const tableArray = [
-    ..."x"
-        .repeat(tableNumber + 1)
-        .split("")
-        .keys(),
-];
+// const tableArray = [
+//     ..."x"
+//         .repeat(tableNumber + 1)
+//         .split("")
+//         .keys(),
+// ];
 
-tableArray.shift();
+// tableArray.shift();
 
 // With recursion
 var tblArray = dyArray(20);
