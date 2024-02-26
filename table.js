@@ -2,6 +2,15 @@ const fs = require("fs");
 
 const tableNumber = 20;
 
+const tableArray = [
+    ..."x"
+        .repeat(tableNumber + 1)
+        .split("")
+        .keys(),
+];
+
+tableArray.shift();
+
 // With recursion
 var tblArray = dyArray(tableNumber);
 function dyArray(num, arr = []) {
@@ -21,11 +30,9 @@ const tableArr = newTbl.map((val, idx) =>
     val.map((value) => value * (idx + 1))
 );
 
-
-// text file string
-var asciiTbl = "";
-tableArr.map((val) => {
-    let test = "";
+var asciiTbl = '';
+tableArr.map((val) => { 
+    let test = ''
     val.map((value) => {
         test += `| ${
             value.toString().length == 3
