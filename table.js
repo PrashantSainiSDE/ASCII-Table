@@ -2,18 +2,8 @@ const fs = require("fs");
 
 const tableNumber = 20;
 
-// with key value
-const tableArray = [
-    ..."x"
-        .repeat(tableNumber + 1)
-        .split("")
-        .keys(),
-];
-
-tableArray.shift();
-
 // With recursion
-var tblArray = dyArray(20);
+var tblArray = dyArray(tableNumber);
 function dyArray(num, arr = []) {
     if (num > 0) {
         arr.push(num);
@@ -22,13 +12,15 @@ function dyArray(num, arr = []) {
     return arr;
 }
 
-const newTbl = tblArray.reverse().map((value, index, array) => {
-    return array.filter((a) => a <= 10);
-});
+const newTbl = tblArray.reverse().map((_, __, array) => {
+    return array;
+}).slice(0,10);
+
 
 const tableArr = newTbl.map((val, idx) =>
     val.map((value) => value * (idx + 1))
 );
+
 
 // text file string
 var asciiTbl = "";
