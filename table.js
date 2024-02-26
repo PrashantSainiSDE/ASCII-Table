@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const tableNumber = 20;
+const tableNumber = 50;
 
 const tableArray = [
     ..."x"
@@ -30,17 +30,19 @@ const tableArr = newTbl.map((val, idx) =>
     val.map((value) => value * (idx + 1))
 );
 
+var maxValue = 0;
+tableArr.forEach(val => {
+   let max =  Math.max(...val)
+   if(max>maxValue){
+       maxValue = max
+   }
+})
+
 var asciiTbl = '';
 tableArr.map((val) => { 
     let test = ''
     val.map((value) => {
-        test += `| ${
-            value.toString().length == 3
-                ? value
-                : value.toString().length == 2
-                ? value + " "
-                : value + "  "
-        } |\t`;
+        test += `| ${value.toString().length < maxValue.toString().length ? value.toString().concat(" ".repeat(maxValue.toString().length - value.toString().length)) : value} |\t`;
     });
     asciiTbl += `${test}\n`;
 });
