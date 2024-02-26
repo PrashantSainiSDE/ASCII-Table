@@ -21,28 +21,41 @@ function dyArray(num, arr = []) {
     return arr;
 }
 
-const newTbl = tblArray.reverse().map((_, __, array) => {
-    return array;
-}).slice(0,10);
-
+const newTbl = tblArray
+    .reverse()
+    .map((_, __, array) => {
+        return array;
+    })
+    .slice(0, 10);
 
 const tableArr = newTbl.map((val, idx) =>
     val.map((value) => value * (idx + 1))
 );
 
 var maxValue = 0;
-tableArr.forEach(val => {
-   let max =  Math.max(...val)
-   if(max>maxValue){
-       maxValue = max
-   }
-})
+tableArr.forEach((val) => {
+    let max = Math.max(...val);
+    if (max > maxValue) {
+        maxValue = max;
+    }
+});
 
-var asciiTbl = '';
-tableArr.map((val) => { 
-    let test = ''
+var asciiTbl = "";
+tableArr.map((val) => {
+    let test = "";
     val.map((value) => {
-        test += `| ${value.toString().length < maxValue.toString().length ? value.toString().concat(" ".repeat(maxValue.toString().length - value.toString().length)) : value} |\t`;
+        test += `| ${
+            value.toString().length < maxValue.toString().length
+                ? value
+                      .toString()
+                      .concat(
+                          " ".repeat(
+                              maxValue.toString().length -
+                                  value.toString().length
+                          )
+                      )
+                : value
+        } |\t`;
     });
     asciiTbl += `${test}\n`;
 });
