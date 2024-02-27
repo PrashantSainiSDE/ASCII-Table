@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const tableNumber = 50;
+const tableNumber = 20;
 
 const tableArray = [
     ..."x"
@@ -33,7 +33,7 @@ const tableArr = newTbl.map((val, idx) =>
 );
 
 var maxValue = 0;
-tableArr.forEach((val) => {
+tableArr.map((val) => {
     let max = Math.max(...val);
     if (max > maxValue) {
         maxValue = max;
